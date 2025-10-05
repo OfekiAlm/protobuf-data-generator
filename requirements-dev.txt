@@ -1,0 +1,12 @@
+numpy
+protobuf
+grpcio-tools
+pytest
+pytest-cov
+black
+flake8
+mypy
+isort
+requests
+build
+twine

@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+import "validate.proto";
+
+enum Status {
+  ACTIVE = 0;
+  INACTIVE = 1;
+  PENDING = 2;
+}
+
+message BasicValidation {
+  int32 age = 1 [
+    (validate.rules).int32.gte = 18,
+    (validate.rules).int32.lte = 120
+  ];
+  
+  string username = 2 [
+    (validate.rules).string.min_len = 3,
+    (validate.rules).string.max_len = 20
+  ];
+  
+  repeated string tags = 3 [
+    (validate.rules).repeated.min_items = 1,
+    (validate.rules).repeated.max_items = 10,
+    (validate.rules).repeated.unique = true
+  ];
+
+  Status status = 4;
+}
+
+message User {
+  int32 age = 1 [
+    (validate.rules).int32.gte = 18,
+    (validate.rules).int32.lte = 120
+  ];
+
+  string email = 2 [
+    (validate.rules).string.contains = "@",
+    (validate.rules).string.min_len = 5
+  ];
+
+  repeated string tags = 3 [
+    (validate.rules).repeated.min_items = 1,
+    (validate.rules).repeated.max_items = 10
+  ];
+
+  Status status = 4;
+}

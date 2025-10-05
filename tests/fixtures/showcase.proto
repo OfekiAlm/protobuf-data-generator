@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+import "validate.proto";
+
+package showcase;
+
+enum Status {
+  STATUS_UNSPECIFIED = 0;
+  ACTIVE = 1;
+  INACTIVE = 2;
+  PENDING = 3;
+}
+
+message NestedProfile {
+  string note = 1 [
+    (validate.rules).string.min_len = 5,
+    (validate.rules).string.max_len = 50
+  ];
+
+  string timezone = 2 [
+    (validate.rules).string.contains = "/",
+    (validate.rules).string.min_len = 3
+  ];
+}
+
+message Showcase {
+  int32 age = 1 [
+    (validate.rules).int32.gte = 18,
+    (validate.rules).int32.lte = 120
+  ];
+
+  string email = 2 [
+    (validate.rules).string.contains = "@",
+    (validate.rules).string.min_len = 5
+  ];
+
+  string username = 3 [
+    (validate.rules).string.min_len = 3,
+    (validate.rules).string.max_len = 16
+  ];
+
+  repeated string tags = 4 [
+    (validate.rules).repeated.min_items = 1,
+    (validate.rules).repeated.max_items = 6,
+    (validate.rules).repeated.unique = true
+  ];
+
+  Status status = 5;
+
+  repeated Status history = 6 [
+    (validate.rules).repeated.min_items = 1,
+    (validate.rules).repeated.max_items = 5
+  ];
+
+  repeated string keywords = 7 [
+    (validate.rules).repeated.min_items = 2,
+    (validate.rules).repeated.max_items = 8
+  ];
+
+  NestedProfile profile = 8;
+}

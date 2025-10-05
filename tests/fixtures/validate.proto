@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package validate;
+
+import "google/protobuf/descriptor.proto";
+
+message Rules {}
+
+extend google.protobuf.FieldOptions {
+  Rules rules = 1071;
+}
