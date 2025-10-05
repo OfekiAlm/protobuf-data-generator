@@ -1,0 +1,4 @@
+syntax = "proto3";
+
+message Broken {
+  int32 value = 1;
