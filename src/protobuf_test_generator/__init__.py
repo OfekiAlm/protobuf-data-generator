@@ -12,7 +12,7 @@ from protobuf_test_generator.core.generator import DataGenerator
 from protobuf_test_generator.core.parser import ProtoParser
 
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 
 def validate_protovalidate(binary_payload: bytes) -> bool:
