@@ -1,6 +1,6 @@
 numpy
 protobuf
-grpcio-tools
+grpcio-tools>=1.51.3,<1.64.0
 pytest
 pytest-cov
 black

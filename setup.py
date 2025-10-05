@@ -10,7 +10,7 @@ with (BASE_DIR / "README.md").open(encoding="utf-8") as fh:
 
 setup(
     name="protobuf-data-generator",
-    version="1.0.0",
+    version="1.0.1",
     author="Ofek Almog",
     author_email="ofekalm100@gmail.com",
     description="Generate valid and invalid protobuf payloads for comprehensive testing.",
@@ -40,7 +40,7 @@ setup(
     python_requires=">=3.7",
     install_requires=[
         "protobuf>=3.19.0",
-        "grpcio-tools>=1.43.0",
+        "grpcio-tools>=1.51.3,<1.64.0",
     ],
     extras_require={
         "dev": [
