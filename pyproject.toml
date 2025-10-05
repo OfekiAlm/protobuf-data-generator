@@ -23,8 +23,6 @@ classifiers = [
 	"Programming Language :: Python :: 3.8",
 	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
-	"Programming Language :: Python :: 3.11",
-	"Programming Language :: Python :: 3.12",
 	"License :: OSI Approved :: MIT License",
 	"Operating System :: OS Independent",
 ]
@@ -34,9 +32,9 @@ classifiers = [
 "Source" = "https://github.com/OfekiAlm/protobuf-data-generator"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.7,<3.11"
 protobuf = "^3.19.0"
-grpcio-tools = ">=1.51.3,<1.64.0"
+grpcio-tools = ">=1.43.0,<1.51.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"

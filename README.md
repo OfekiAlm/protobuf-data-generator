@@ -23,6 +23,8 @@ The **Protobuf Data Generator** creates realistic valid and invalid payloads for
 pip install protobuf-data-generator
 ```
 
+> **Supported Python versions:** 3.7 through 3.10. Python 3.11 and newer are currently unsupported.
+
 For local development:
 
 ```bash

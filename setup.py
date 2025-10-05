@@ -32,15 +32,13 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
-        "Programming Language :: Python :: 3.12",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.7,<3.11",
     install_requires=[
         "protobuf>=3.19.0",
-        "grpcio-tools>=1.51.3,<1.64.0",
+        "grpcio-tools>=1.43.0,<1.51.0",
     ],
     extras_require={
         "dev": [
