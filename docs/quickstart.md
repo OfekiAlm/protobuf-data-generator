@@ -19,7 +19,7 @@ This will install the package along with its dependencies.
 ### 1. Generate Valid Data (C Array)
 
 ```bash
-python3 -m protobuf_test_generator --proto_file test_basic.proto --message BasicValidation
+protobuf-data-generator --proto-file test_basic.proto --message BasicValidation
 ```
 
 Output:
@@ -31,8 +31,8 @@ const size_t basicvalidation_data_size = 252;
 ### 2. Generate Invalid Data (Violating a Specific Rule)
 
 ```bash
-python3 -m protobuf_test_generator --proto_file test_basic.proto --message BasicValidation \
-    --invalid --field age --rule lte
+protobuf-data-generator --proto-file test_basic.proto --message BasicValidation \
+  --invalid --field age --rule lte
 ```
 
 This generates data where `age > 150`, violating the `lte = 150` constraint.
@@ -40,8 +40,8 @@ This generates data where `age > 150`, violating the `lte = 150` constraint.
 ### 3. Generate Hex Output
 
 ```bash
-python3 -m protobuf_test_generator --proto_file test_basic.proto --message BasicValidation \
-    --format hex
+protobuf-data-generator --proto-file test_basic.proto --message BasicValidation \
+  --format hex
 ```
 
 Output:
@@ -52,8 +52,8 @@ Output:
 ### 4. Save to Binary File
 
 ```bash
-python3 -m protobuf_test_generator --proto_file test_basic.proto --message BasicValidation \
-    --format binary -o test_data.bin
+protobuf-data-generator --proto-file test_basic.proto --message BasicValidation \
+  --format binary -o test_data.bin
 ```
 
 ## Python API Usage
@@ -151,10 +151,11 @@ message User {
 ## CLI Options Reference
 
 ```
-usage: protobuf_test_generator [-h] [--invalid] [--field FIELD] [--rule RULE]
-                               [--format {binary,c_array,hex,json}]
-                               [--output OUTPUT] [--seed SEED]
-                               proto_file message
+usage: protobuf-data-generator [-h] [--invalid] [--field FIELD] [--rule RULE]
+                               [--format {binary,c_array,hex,json}] [--output OUTPUT]
+                               [--seed SEED] [-I INCLUDE] [--proto-file PROTO_FILE]
+                               [--message MESSAGE]
+                               [proto_file] [message]
 
 positional arguments:
   proto_file            Path to .proto file
@@ -162,12 +163,17 @@ positional arguments:
 
 optional arguments:
   -h, --help            Show help message
+  --proto-file PROTO_FILE, --proto_file PROTO_FILE
+                        Proto file path (alternative to positional argument)
+  --message MESSAGE     Message name (alternative to positional argument)
   --invalid             Generate invalid data
   --field FIELD         Field to violate (for invalid data)
   --rule RULE           Rule to violate (for invalid data)
   --format FORMAT       Output format (default: c_array)
   --output FILE, -o     Output file (default: stdout)
   --seed SEED           Random seed for reproducibility
+  -I INCLUDE, --include INCLUDE
+                        Include path for proto files
 ```
 
 ## Integration with ProtoValidate

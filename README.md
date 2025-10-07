@@ -67,10 +67,16 @@ c_array = generator.format_output(binary_blob, "c_array", "showcase_payload")
 ### Command line interface
 
 ```bash
-python -m protobuf_test_generator \
-	--proto_file tests/fixtures/showcase.proto \
+protobuf-data-generator \
+	--proto-file tests/fixtures/showcase.proto \
 	--message Showcase \
 	--format json
+```
+
+You can also supply the proto file and message as positional arguments if you prefer:
+
+```bash
+protobuf-data-generator tests/fixtures/showcase.proto Showcase --format json
 ```
 
 Optional flags:

@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "protobuf-data-generator"
-version = "1.1.0"
+version = "1.1.1"
 description = "A Python package for generating valid and invalid protobuf test data."
 authors = ["Ofek Almog <ofekalm100@gmail.com>"]
 license = "MIT"

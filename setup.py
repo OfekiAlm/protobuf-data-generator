@@ -10,7 +10,7 @@ with (BASE_DIR / "README.md").open(encoding="utf-8") as fh:
 
 setup(
     name="protobuf-data-generator",
-    version="1.1.0",
+    version="1.1.1",
     author="Ofek Almog",
     author_email="ofekalm100@gmail.com",
     description="Generate valid and invalid protobuf payloads for comprehensive testing.",

@@ -19,7 +19,13 @@ pip install protobuf-test-data-generator
 You can use the command-line interface to generate test data directly from the terminal. The basic syntax is:
 
 ```bash
-python -m protobuf_test_generator <options> <proto_file> <message>
+protobuf-data-generator [options] <proto_file> <message>
+```
+
+You can also pass the proto and message explicitly with long-form flags:
+
+```bash
+protobuf-data-generator --proto-file path/to/file.proto --message MessageName [options]
 ```
 
 #### Options
@@ -76,7 +82,7 @@ Each constraint system has its own set of rules and validation logic, allowing f
 ### Generating Valid Data
 
 ```bash
-python -m protobuf_test_generator --format json my_proto.proto MyMessage
+protobuf-data-generator --format json my_proto.proto MyMessage
 ```
 
 ### Generating Invalid Data
