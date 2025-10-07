@@ -10,7 +10,7 @@ with (BASE_DIR / "README.md").open(encoding="utf-8") as fh:
 
 setup(
     name="protobuf-data-generator",
-    version="1.0.1",
+    version="1.1.0",
     author="Ofek Almog",
     author_email="ofekalm100@gmail.com",
     description="Generate valid and invalid protobuf payloads for comprehensive testing.",
@@ -32,13 +32,16 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.7,<3.11",
+    python_requires=">=3.8,<3.14",
     install_requires=[
-        "protobuf>=3.19.0",
-        "grpcio-tools>=1.43.0,<1.51.0",
+        "protobuf>=6.31.1,<7.0.0",
+        "grpcio-tools>=1.75.1,<2.0.0",
     ],
     extras_require={
         "dev": [
@@ -51,6 +54,7 @@ setup(
     entry_points={
         "console_scripts": [
             "protobuf-test-data-generator=protobuf_test_generator.cli:main",
+            "protobuf-data-generator=protobuf_test_generator.cli:main",
         ],
     },
 )

@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "protobuf-data-generator"
-version = "1.0.1"
+version = "1.1.0"
 description = "A Python package for generating valid and invalid protobuf test data."
 authors = ["Ofek Almog <ofekalm100@gmail.com>"]
 license = "MIT"
@@ -23,6 +23,9 @@ classifiers = [
 	"Programming Language :: Python :: 3.8",
 	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
+	"Programming Language :: Python :: 3.11",
+	"Programming Language :: Python :: 3.12",
+	"Programming Language :: Python :: 3.13",
 	"License :: OSI Approved :: MIT License",
 	"Operating System :: OS Independent",
 ]
@@ -32,9 +35,13 @@ classifiers = [
 "Source" = "https://github.com/OfekiAlm/protobuf-data-generator"
 
 [tool.poetry.dependencies]
-python = ">=3.7,<3.11"
-protobuf = "^3.19.0"
-grpcio-tools = ">=1.43.0,<1.51.0"
+python = ">=3.8,<3.14"
+protobuf = ">=6.31.1,<7.0.0"
+grpcio-tools = ">=1.75.1,<2.0.0"
+
+[tool.poetry.scripts]
+protobuf-data-generator = "protobuf_test_generator.cli:main"
+protobuf-test-data-generator = "protobuf_test_generator.cli:main"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
